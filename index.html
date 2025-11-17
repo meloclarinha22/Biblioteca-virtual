@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Projeto: Biblioteca Virtual Escolar - Documentação</title>
+
+    <meta name="description" content="Documentação do Projeto Sistema de Biblioteca Virtual Escolar: objetivo, requisitos funcionais e não funcionais, diagramas UML e equipe de desenvolvimento.">
+
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+    /* Estilos das cards de RFs */
+    .rf-card { border-left: 6px solid #007bff; padding: 10px; margin-bottom: 10px; background: #f8f9fa; }
+    .priority-high { background: #ff4d4d; color: #fff; padding: 3px 7px; border-radius: 5px; }
+    .priority-medium { background: #ffc107; color: #000; padding: 3px 7px; border-radius: 5px; }
+    .priority-low { background: #90ee90; color: #000; padding: 3px 7px; border-radius: 5px; }
+  </style>
+
+</head>
+
+<body>
+  
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">📚 Projeto Biblioteca Virtual Escolar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Apresentação <span class="sr-only">(Página atual)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#requisitos">Requisitos e Histórias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#diagramas">Diagramas UML</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#equipe">Equipe</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Projeto: Análise e Especificação</li>
+    </ol>
+  </nav>
+
+    <main class="container my-5">
+    
+        <section class="text-center mb-5">
+      <h1 class="mb-4">📚 Sistema de Biblioteca Virtual Escolar</h1>
+      <p class="lead">
+        Documento de Análise e Especificação de Requisitos para a melhoria da Biblioteca Virtual da Escola.
+      </p>
+      <hr class="my-4">
+
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h3>🎯 Objetivo do Projeto</h3>
+          <p>Melhorar a experiência da Biblioteca Virtual, **facilitando o acesso** ao acervo para estudantes e **otimizando as tarefas** de controle de empréstimos, devoluções e multas para os funcionários e bibliotecários.</p>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h3>👥 Público Alvo</h3>
+          <ul>
+            <li>**Estudantes:** Acessam o catálogo, fazem reservas e renovações.</li>
+            <li>**Professores/Funcionários:** Acessam o catálogo e gerenciam seus próprios empréstimos.</li>
+            <li>**Bibliotecários:** Gerenciam acervo, empréstimos, multas e relatórios.</li>
+            <li>**Administradores:** Gerenciam o sistema e usuários.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <hr>
+
+        <section id="requisitos" class="mt-5">
+      <h2 class="mb-4 text-center">📋 Requisitos e Histórias de Usuário (US)</h2>
+      <p class="text-center lead">Funcionalidades e Qualidades esperadas do sistema, classificadas por prioridade.</p>
+
+      <div class="row">
+                <div class="col-md-6">
+          <h3>Requisitos Funcionais (RF)</h3>
+                    <div class="rf-card"><strong>RF01 (US11) – Cadastro de usuários (Admin)</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF02 (US01) – Login e autenticação</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF03 (US03) – Gerenciamento do Acervo (Bibliotecário)</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF04 (US04) – Consulta e Busca no Catálogo</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF05 (US05) – Empréstimos e Devoluções</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF07 (US06) – Renovação de empréstimo online</strong> <span class="priority-medium">Média</span></div>
+          <div class="rf-card"><strong>RF09 (US09) – Controle de Prazos e Multas</strong> <span class="priority-medium">Média</span></div>
+        </div>
+
+                <div class="col-md-6">
+          <h3>Requisitos Não Funcionais (RNF)</h3>
+          <ul>
+            <li>**RNF01 (US12):** Acessibilidade Web e Mobile (Responsividade) — <span class="priority-high">Alta</span></li>
+            <li>**RNF02 (US13):** Interface simples e intuitiva (Usabilidade) — <span class="priority-high">Alta</span></li>
+            <li>**RNF03:** Segurança e Criptografia de Dados — <span class="priority-high">Alta</span></li>
+            <li>**RNF04 (US14):** Rapidez no Desempenho das Buscas — <span class="priority-high">Alta</span></li>
+            <li>**RNF05 (US15):** Backup automático do sistema — <span class="priority-low">Baixa</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <hr>
+
+        <section id="diagramas" class="mt-5">
+      <h2 class="mb-4 text-center">📊 Diagramas UML (Análise)</h2>
+
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h3>Diagrama de Classes</h3>
+          <p>Representa a estrutura estática do sistema, mostrando as classes principais como Livro, Usuário, Bibliotecário e Empréstimo, com seus atributos e métodos. </p>
+          <img src="diagrama-classes.png" class="img-fluid border p-2" alt="Diagrama de classes do sistema de biblioteca virtual">
+        </div>
+        <div class="col-md-6 mb-4">
+          <h3>Diagrama de Casos de Uso</h3>
+          <p>Descreve as interações entre os usuários (Estudante/Professor, Bibliotecário, Administrador) e as funcionalidades principais do sistema.</p>
+          <img src="casos-uso.png" class="img-fluid border p-2" alt="Diagrama de casos de uso do sistema de biblioteca virtual">
+        </div>
+      </div>
+    </section>
+    <hr>
+    
+        <section id="equipe" class="mt-5 text-center">
+      <h2 class="mb-4">🧑‍💻 Equipe de Desenvolvimento</h2>
+      <p class="lead">Este projeto foi desenvolvido seguindo o ciclo de vida de software por:</p>
+      
+      <h4>Membros da Equipe</h4>
+      <ul class="list-unstyled">
+        <li>**Tatiane**</li>
+        <li>**Maria Clara Melo**</li>
+        <li>**Jordana**</li>
+        <li>**Sara**</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="bg-dark text-white text-center py-4 mt-auto">
+  <div class="container">
+    <p class="mb-1">Contato do Projeto: <a href="mailto:projeto.biblioteca@escola.com" class="text-white">projeto.biblioteca@escola.com</a></p>
+    <p class="mb-0">&copy; 2025 Projeto Biblioteca Virtual Escolar. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGaR9G4Q9ANmF6YFZ94i+6oDkG"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</body>
+</html>
