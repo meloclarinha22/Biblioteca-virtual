@@ -2,243 +2,198 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Projeto: Biblioteca Virtual Escolar - Documentação</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="description" content="Documentação do Projeto Sistema de Biblioteca Virtual Escolar: objetivo, requisitos funcionais e não funcionais, diagramas UML e equipe de desenvolvimento.">
+  <title>Projeto: Biblioteca Virtual Escolar - Documentação</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Documentação do Projeto Sistema de Biblioteca Virtual Escolar: objetivo, requisitos funcionais e não funcionais, diagramas UML e equipe de desenvolvimento.">
 
-    <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-  <style>
-    /* Paleta de Cores */
-    :root {
-      --primary-color: #003366; /* Azul Marinho Profundo (Layout Principal) */
-      --secondary-color: #6c757d; /* Cinza Escuro */
-      --background-alt: #f2f2f2; /* Cinza mais claro para seções */
-    }
+  <style>
+    /* Layout principal */
+    html, body { height: 100%; margin: 0; }
+    body { display: flex; flex-direction: column; font-family: Arial, sans-serif; background: #e9f1fa; }
+    main { flex: 1; }
 
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Open Sans', sans-serif; 
-      color: #343a40; 
-    }
+    /* --- ESTILO PRINCIPAL DO TEMA AZUL --- */
+    .navbar-dark { background: #003d80 !important; }
+    .breadcrumb { background: #d9e8ff; }
+    h1, h2, h3 { color: #003d80; }
 
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    main {
-      flex: 1;
-    }
-    
-    /* CLASSE CUSTOMIZADA PARA AZUL MARINHO (FORÇADA PARA NAVBAR/FOOTER) */
-    .bg-marinho {
-        background-color: var(--primary-color) !important;
+    /* Cards dos requisitos */
+    .rf-card {
+      border-left: 6px solid #0056b3;
+      padding: 12px;
+      margin-bottom: 12px;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform .2s;
     }
-    
-    /* Texto da Navbar e Footer em Branco */
-    .navbar-dark .navbar-nav .nav-link, 
-    .navbar-brand, 
-    .footer a {
-        color: #fff !important;
+    .rf-card:hover { transform: translateX(5px); }
+
+    .priority-high { background: #d9534f; color: #fff; padding: 3px 7px; border-radius: 4px; }
+    .priority-medium { background: #f0ad4e; color: #000; padding: 3px 7px; border-radius: 4px; }
+    .priority-low { background: #5cb85c; color: #fff; padding: 3px 7px; border-radius: 4px; }
+
+    /* Cards das seções */
+    section {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      border-left: 6px solid #0056b3;
     }
 
-    /* Títulos em Azul Marinho */
-    h1, h2, h3, h4 { color: var(--primary-color); font-weight: 600; }
-
-    /* Breadcrumb com fundo sutil */
-    .breadcrumb { background-color: var(--background-alt); border-radius: 0; }
-
-    /* Estilo aprimorado das Cards de RFs */
-    .rf-card { 
-      border-left: 6px solid var(--primary-color); 
-      padding: 15px; 
-      margin-bottom: 15px; 
-      background: #fff; 
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
-      color: #343a40; 
-    }
-
-    /* Prioridades com cores fortes (garantidas com !important) */
-    .priority-high { background: #dc3545 !important; color: #fff !important; padding: 3px 7px; border-radius: 5px; font-weight: 600; }
-    .priority-medium { background: #ffc107 !important; color: #343a40 !important; padding: 3px 7px; border-radius: 5px; font-weight: 600; }
-    .priority-low { background: #28a745 !important; color: #fff !important; padding: 3px 7px; border-radius: 5px; font-weight: 600; }
-
-    /* Seções de diagramas com borda */
-    .diagram-img {
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 10px;
-        background-color: #fff;
+    /* Imagens */
+    img {
+      border-radius: 8px;
+      background: white;
     }
-  </style>
+
+    /* Rodapé */
+    footer {
+      background: #003d80;
+      color: white;
+    }
+
+    footer a { color: #aee1ff; }
+    footer a:hover { color: #ffffff; }
+  </style>
 
 </head>
-
 <body>
-  
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-marinho shadow-sm">
-    <div class="container">
-      <a class="navbar-brand" href="#">📚 Projeto Biblioteca Virtual Escolar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand font-weight-bold" href="#">📘 Biblioteca Virtual Escolar</a>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Apresentação</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#requisitos">Requisitos e Histórias</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#diagramas">Diagramas UML</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#equipe">Equipe</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <nav aria-label="breadcrumb">
-    <div class="container">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">Projeto: Análise e Especificação</li>
-      </ol>
-    </div>
-  </nav>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto font-weight-bold">
+          <li class="nav-item active"><a class="nav-link" href="#">Apresentação</a></li>
+          <li class="nav-item"><a class="nav-link" href="#requisitos">Requisitos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#diagramas">Diagramas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <main class="container my-5">
-    
-        <section class="text-center mb-5 p-4 bg-white rounded shadow-sm">
-      <h1 class="mb-4 display-4">📚 Biblioteca Virtual Escolar</h1>
-      <p class="lead text-muted">
-        Documento de Análise e Especificação de Requisitos para a melhoria do sistema da Biblioteca Virtual.
-      </p>
-      <hr class="my-4">
+  <!-- BREADCRUMB -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active">Projeto: Análise e Especificação</li>
+    </ol>
+  </nav>
 
-      <div class="row pt-3">
-        <div class="col-md-6 mb-4">
-          <h3>🎯 Objetivo do Projeto</h3>
-          <p>Melhorar a experiência da Biblioteca Virtual, **facilitando o acesso** ao acervo para estudantes e **otimizando as tarefas** de controle de empréstimos, devoluções e multas para os funcionários e bibliotecários.</p>
-        </div>
-        <div class="col-md-6 mb-4">
-          <h3>👥 Público Alvo</h3>
-          <ul class="list-unstyled text-left mx-auto" style="max-width: 300px;">
-            <li>✅ **Estudantes**</li>
-            <li>✅ **Professores/Funcionários**</li>
-            <li>✅ **Bibliotecários**</li>
-            <li>✅ **Administradores**</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container my-4">
 
+    <!-- APRESENTAÇÃO -->
+    <section class="text-center">
+      <h1 class="mb-3">📚 Sistema de Biblioteca Virtual Escolar</h1>
+      <p class="lead">Documentação oficial do projeto com requisitos, diagramas UML e equipe.</p>
+      <hr>
 
-        <section id="requisitos" class="mt-5 pt-3">
-      <h2 class="mb-5 text-center">📋 Requisitos e Histórias de Usuário (US)</h2>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <h3>🎯 Objetivo</h3>
+          <p>Melhorar a Biblioteca Virtual, facilitando o acesso ao acervo e otimizando empréstimos, devoluções e multas.</p>
+        </div>
+        <div class="col-md-6">
+          <h3>👥 Público Alvo</h3>
+          <ul class="text-left">
+            <li><strong>Estudantes:</strong> Reservam e renovam livros.</li>
+            <li><strong>Professores:</strong> Consultam acervo e renovam empréstimos.</li>
+            <li><strong>Bibliotecários:</strong> Gerenciam acervo e operações.</li>
+            <li><strong>Administradores:</strong> Gerenciam usuários e permissões.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-      <div class="row">
-                <div class="col-md-6">
-          <h3 class="mb-4">Funcionais (RF)</h3>
-          <div class="rf-card shadow-sm"><strong>RF01 (US11) – Cadastro de usuários (Admin)</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card shadow-sm"><strong>RF02 (US01) – Login e autenticação</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card shadow-sm"><strong>RF03 (US03) – Gerenciamento do Acervo (Bibliotecário)</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card shadow-sm"><strong>RF04 (US04) – Consulta e Busca no Catálogo</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card shadow-sm"><strong>RF05 (US05) – Empréstimos e Devoluções</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card shadow-sm"><strong>RF07 (US06) – Renovação de empréstimo online</strong> <span class="priority-medium">Média</span></div>
-          <div class="rf-card shadow-sm"><strong>RF09 (US09) – Controle de Prazos e Multas</strong> <span class="priority-medium">Média</span></div>
-        </div>
+    <!-- REQUISITOS -->
+    <section id="requisitos">
+      <h2 class="text-center">📋 Requisitos e Histórias de Usuário</h2>
+      <p class="text-center">Listagem dos requisitos funcionais e não funcionais.</p>
 
-                <div class="col-md-6">
-          <h3 class="mb-4">Não Funcionais (RNF)</h3>
-          <div class="p-4 bg-white rounded shadow-sm">
-            <ul>
-              <li>**RNF01 (US12):** Acessibilidade Web e Mobile (Responsividade) — <span class="priority-high">Alta</span></li>
-              <li>**RNF02 (US13):** Interface simples e intuitiva (Usabilidade) — <span class="priority-high">Alta</span></li>
-              <li>**RNF03:** Segurança e Criptografia de Dados — <span class="priority-high">Alta</span></li>
-              <li>**RNF04 (US14):** Rapidez no Desempenho das Buscas — <span class="priority-high">Alta</span></li>
-              <li>**RNF05 (US15):** Backup automático do sistema — <span class="priority-low">Baixa</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <hr class="my-5">
+      <div class="row">
+        <div class="col-md-6">
 
-        <section id="diagramas" class="mt-5">
-      <h2 class="mb-4 text-center">📊 Diagramas UML (Análise)</h2>
+          <h3 class="mb-3">Requisitos Funcionais (RF)</h3>
+          <div class="rf-card"><strong>RF01 – Cadastro de usuários</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF02 – Login e autenticação</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF03 – Gerenciamento do acervo</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF04 – Busca no catálogo</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF05 – Empréstimos e devoluções</strong> <span class="priority-high">Alta</span></div>
+          <div class="rf-card"><strong>RF07 – Renovação online</strong> <span class="priority-medium">Média</span></div>
+          <div class="rf-card"><strong>RF09 – Controle de multas</strong> <span class="priority-medium">Média</span></div>
 
-      <div class="row">
-        <div class="col-md-6 mb-4">
-          <h3>Diagrama de Classes</h3>
-          <p class="text-muted">Representa a estrutura estática do sistema, mostrando as classes principais como Livro, Usuário, Bibliotecário e Empréstimo, com seus atributos e métodos.</p>
-          <div class="diagram-img shadow-sm">
-            <img src="diagrama-classes.png" class="img-fluid" alt="Diagrama de classes do sistema de biblioteca virtual">
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <h3>Diagrama de Casos de Uso</h3>
-          <p class="text-muted">Descreve as interações entre os usuários (Estudante/Professor, Bibliotecário, Administrador) e as funcionalidades principais do sistema.</p>
-          <div class="diagram-img shadow-sm">
-            <img src="casos-uso.png" class="img-fluid" alt="Diagrama de casos de uso do sistema de biblioteca virtual">
-          </div>
-        </div>
-      </div>
-    </section>
-    <hr class="my-5">
-    
-        <section id="equipe" class="mt-5 text-center p-4 bg-light rounded">
-      <h2 class="mb-4">🧑‍💻 Equipe de Desenvolvimento</h2>
-      <p class="lead text-muted">Este projeto foi desenvolvido seguindo o ciclo de vida de software por:</p>
-      
-      <h4>Membros da Equipe</h4>
-      <div class="row justify-content-center">
-        <div class="col-auto">
-          <ul class="list-unstyled text-left">
-            <li>🔹 Tatiane</li>
-            <li>🔹 Maria Clara Melo</li>
-            <li>🔹 Jordana</li>
-            <li>🔹 Sara</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        </div>
 
-  </main>
+        <div class="col-md-6">
+          <h3 class="mb-3">Requisitos Não Funcionais (RNF)</h3>
+          <ul class="list-unstyled">
+            <li>✔ <strong>RNF01:</strong> Responsivo — <span class="priority-high">Alta</span></li>
+            <li>✔ <strong>RNF02:</strong> Interface intuitiva — <span class="priority-high">Alta</span></li>
+            <li>✔ <strong>RNF03:</strong> Segurança — <span class="priority-high">Alta</span></li>
+            <li>✔ <strong>RNF04:</strong> Desempenho — <span class="priority-high">Alta</span></li>
+            <li>✔ <strong>RNF05:</strong> Backup automático — <span class="priority-low">Baixa</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <footer class="bg-marinho text-white text-center py-4 mt-auto">
-  <div class="container">
-    <p class="mb-1">Contato do Projeto: <a href="mailto:projeto.biblioteca@escola.com" class="text-white">projeto.biblioteca@escola.com</a></p>
-    <p class="mb-0">&copy; 2025 Projeto Biblioteca Virtual Escolar. Todos os direitos reservados.</p>
-  </div>
-</footer>
+    <!-- DIAGRAMAS UML -->
+    <section id="diagramas">
+      <h2 class="text-center">📊 Diagramas UML</h2>
 
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <h4>Diagrama de Classes</h4>
+          <img src="diagrama-classes.png" class="img-fluid p-2 border" alt="Diagrama de Classes">
+        </div>
+        <div class="col-md-6">
+          <h4>Diagrama de Casos de Uso</h4>
+          <img src="casos-uso.png" class="img-fluid p-2 border" alt="Diagrama de Casos de Uso">
+        </div>
+      </div>
+    </section>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGaR9G4Q9ANmF6YFZ94i+6oDkG"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    <!-- EQUIPE -->
+    <section id="equipe" class="text-center">
+      <h2>🧑‍💻 Equipe de Desenvolvimento</h2>
+      <p class="lead">Projeto desenvolvido por:</p>
+      <ul class="list-unstyled">
+        <li><strong>Tatiane</strong></li>
+        <li><strong>Maria Clara Melo</strong></li>
+        <li><strong>Jordana</strong></li>
+        <li><strong>Sara</strong></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="text-white text-center py-4">
+    <div class="container">
+      <p class="mb-1">Contato: <a href="mailto:projeto.biblioteca@escola.com">projeto.biblioteca@escola.com</a></p>
+      <p class="mb-0">&copy; 2025 Biblioteca Virtual Escolar. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
