@@ -14,17 +14,14 @@
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
   <style>
-    /* Layout principal */
     html, body { height: 100%; margin: 0; }
     body { display: flex; flex-direction: column; font-family: Arial, sans-serif; background: #e9f1fa; }
     main { flex: 1; }
 
-    /* --- ESTILO PRINCIPAL DO TEMA AZUL --- */
     .navbar-dark { background: #003d80 !important; }
     .breadcrumb { background: #d9e8ff; }
     h1, h2, h3 { color: #003d80; }
 
-    /* Cards dos requisitos */
     .rf-card {
       border-left: 6px solid #0056b3;
       padding: 12px;
@@ -39,7 +36,6 @@
     .priority-medium { background: #f0ad4e; color: #000; padding: 3px 7px; border-radius: 4px; }
     .priority-low { background: #5cb85c; color: #fff; padding: 3px 7px; border-radius: 4px; }
 
-    /* Cards das seções */
     section {
       background: #ffffff;
       padding: 25px;
@@ -49,18 +45,9 @@
       border-left: 6px solid #0056b3;
     }
 
-    /* Imagens */
-    img {
-      border-radius: 8px;
-      background: white;
-    }
+    img { border-radius: 8px; background: white; }
 
-    /* Rodapé */
-    footer {
-      background: #003d80;
-      color: white;
-    }
-
+    footer { background: #003d80; color: white; }
     footer a { color: #aee1ff; }
     footer a:hover { color: #ffffff; }
   </style>
@@ -151,6 +138,66 @@
           </ul>
         </div>
       </div>
+
+      <!-- CRITÉRIOS DAS HISTÓRIAS DE USUÁRIO -->
+      <h3 class="mt-4">📌 Critérios das Histórias de Usuário</h3>
+
+      <div class="rf-card"><strong>US01F – Login</strong><br>
+      Validar e-mail cadastrado e formato correto; validar senha; exibir mensagens de erro específicas para usuário inexistente ou senha incorreta; manter sessão segura.
+      </div>
+
+      <div class="rf-card"><strong>US02F – Cadastro de Usuário</strong><br>
+      Exigir e-mail válido e senha segura; mostrar feedback de cadastro concluído ou erro; impedir duplicidade de usuário.
+      </div>
+
+      <div class="rf-card"><strong>US03F – Cadastro de Livros</strong><br>
+      Exigir título, autor e ano; verificar ISBN; permitir editar/excluir livro; exibir confirmação de cadastro.
+      </div>
+
+      <div class="rf-card"><strong>US04F – Busca no Acervo</strong><br>
+      Buscar por título, autor ou ISBN; exibir resultados relevantes; mostrar aviso se nenhum resultado encontrado.
+      </div>
+
+      <div class="rf-card"><strong>US05F – Disponibilidade do Livro</strong><br>
+      Verificar se usuário está ativo e livro disponível; impedir empréstimo se indisponível; atualizar status após empréstimo.
+      </div>
+
+      <div class="rf-card"><strong>US06F – Empréstimo</strong><br>
+      Registrar empréstimo, atualizar status do livro, enviar confirmação ao usuário.
+      </div>
+
+      <div class="rf-card"><strong>US07F – Histórico</strong><br>
+      Listar empréstimos ativos e concluídos; exibir datas e status de devolução.
+      </div>
+
+      <div class="rf-card"><strong>US08F – Renovação</strong><br>
+      Permitir renovação apenas antes do vencimento; atualizar nova data; notificar confirmação de renovação.
+      </div>
+
+      <div class="rf-card"><strong>US09F – Reserva</strong><br>
+      Permitir reservar somente livros indisponíveis; notificar usuário quando livro disponível; confirmar reserva; atualizar status do livro.
+      </div>
+
+      <div class="rf-card"><strong>US10F – Multas</strong><br>
+      Registrar prazos de devolução; avisar sobre atraso; gerar multa automática; exibir saldo devedor.
+      </div>
+
+      <div class="rf-card"><strong>US01FN – Acessibilidade</strong><br>
+      Funcionar corretamente em desktop e mobile; interface responsiva.
+      </div>
+
+      <div class="rf-card"><strong>US02FN – Usabilidade</strong><br>
+      Menus em até 2 cliques; ícones e textos claros; navegação intuitiva.
+      </div>
+
+      <div class="rf-card"><strong>US03FN – Segurança</strong><br>
+      Senhas criptografadas; conexão HTTPS; proteção de dados do usuário.
+      </div>
+
+      <div class="rf-card"><strong>US04FN – Desempenho</strong><br>
+      Busca de livros < 3 segundos; cadastro < 5 segundos; sistema estável com múltiplos usuários.
+      </div>
+
     </section>
 
     <!-- DIAGRAMAS UML -->
@@ -191,7 +238,6 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
