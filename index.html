@@ -2,198 +2,348 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Projeto: Biblioteca Virtual Escolar - Documentação</title>
+    <title>Projeto: Biblioteca Virtual Escolar - Documentação</title>
 
-  <meta name="description" content="Documentação do Projeto Sistema de Biblioteca Virtual Escolar: objetivo, requisitos funcionais e não funcionais, diagramas UML e equipe de desenvolvimento.">
+    <meta name="description"
+        content="Documentação do Projeto Sistema de Biblioteca Virtual Escolar: objetivo, requisitos funcionais e não funcionais, diagramas UML e equipe de desenvolvimento.">
 
-  <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-  <style>
-    /* Layout principal */
-    html, body { height: 100%; margin: 0; }
-    body { display: flex; flex-direction: column; font-family: Arial, sans-serif; background: #e9f1fa; }
-    main { flex: 1; }
+    <style>
+        /* Layout principal */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
 
-    /* --- ESTILO PRINCIPAL DO TEMA AZUL --- */
-    .navbar-dark { background: #003d80 !important; }
-    .breadcrumb { background: #d9e8ff; }
-    h1, h2, h3 { color: #003d80; }
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: #e9f1fa;
+        }
 
-    /* Cards dos requisitos */
-    .rf-card {
-      border-left: 6px solid #0056b3;
-      padding: 12px;
-      margin-bottom: 12px;
-      background: #ffffff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform .2s;
-    }
-    .rf-card:hover { transform: translateX(5px); }
+        main {
+            flex: 1;
+        }
 
-    .priority-high { background: #d9534f; color: #fff; padding: 3px 7px; border-radius: 4px; }
-    .priority-medium { background: #f0ad4e; color: #000; padding: 3px 7px; border-radius: 4px; }
-    .priority-low { background: #5cb85c; color: #fff; padding: 3px 7px; border-radius: 4px; }
+        /* --- ESTILO PRINCIPAL DO TEMA AZUL --- */
+        .navbar-dark {
+            background: #003d80 !important;
+        }
 
-    /* Cards das seções */
-    section {
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 8px;
-      margin-bottom: 35px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      border-left: 6px solid #0056b3;
-    }
+        .breadcrumb {
+            background: #d9e8ff;
+        }
 
-    /* Imagens */
-    img {
-      border-radius: 8px;
-      background: white;
-    }
+        h1,
+        h2,
+        h3 {
+            color: #003d80;
+        }
 
-    /* Rodapé */
-    footer {
-      background: #003d80;
-      color: white;
-    }
+        /* Cards dos requisitos */
+        .rf-card {
+            border-left: 6px solid #0056b3;
+            padding: 12px;
+            margin-bottom: 12px;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform .2s;
+        }
 
-    footer a { color: #aee1ff; }
-    footer a:hover { color: #ffffff; }
-  </style>
+        .rf-card:hover {
+            transform: translateX(5px);
+        }
+
+        .priority-high {
+            background: #d9534f;
+            color: #fff;
+            padding: 3px 7px;
+            border-radius: 4px;
+        }
+
+        .priority-medium {
+            background: #f0ad4e;
+            color: #000;
+            padding: 3px 7px;
+            border-radius: 4px;
+        }
+
+        .priority-low {
+            background: #5cb85c;
+            color: #fff;
+            padding: 3px 7px;
+            border-radius: 4px;
+        }
+
+        /* Cards das seções */
+        section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border-left: 6px solid #0056b3;
+        }
+
+        /* Imagens */
+        img {
+            border-radius: 8px;
+            background: white;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #003d80;
+            color: white;
+        }
+
+        footer a {
+            color: #aee1ff;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+    </style>
 
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand font-weight-bold" href="#">📘 Biblioteca Virtual Escolar</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="#">📘 Biblioteca Virtual Escolar</a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto font-weight-bold">
-          <li class="nav-item active"><a class="nav-link" href="#">Apresentação</a></li>
-          <li class="nav-item"><a class="nav-link" href="#requisitos">Requisitos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#diagramas">Diagramas</a></li>
-          <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- BREADCRUMB -->
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item active">Projeto: Análise e Especificação</li>
-    </ol>
-  </nav>
-
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main class="container my-4">
-
-    <!-- APRESENTAÇÃO -->
-    <section class="text-center">
-      <h1 class="mb-3">📚 Sistema de Biblioteca Virtual Escolar</h1>
-      <p class="lead">Documentação oficial do projeto com requisitos, diagramas UML e equipe.</p>
-      <hr>
-
-      <div class="row mt-4">
-        <div class="col-md-6">
-          <h3>🎯 Objetivo</h3>
-          <p>Melhorar a Biblioteca Virtual, facilitando o acesso ao acervo e otimizando empréstimos, devoluções e multas.</p>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto font-weight-bold">
+                    <li class="nav-item active"><a class="nav-link" href="#">Apresentação</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#requisitos">Requisitos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#diagramas">Diagramas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="col-md-6">
-          <h3>👥 Público Alvo</h3>
-          <ul class="text-left">
-            <li><strong>Estudantes:</strong> Reservam e renovam livros.</li>
-            <li><strong>Professores:</strong> Consultam acervo e renovam empréstimos.</li>
-            <li><strong>Bibliotecários:</strong> Gerenciam acervo e operações.</li>
-            <li><strong>Administradores:</strong> Gerenciam usuários e permissões.</li>
-          </ul>
+    </nav>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Projeto: Análise e Especificação</li>
+        </ol>
+    </nav>
+
+    <main class="container my-4">
+
+        <section class="text-center">
+            <h1 class="mb-3">📚 Sistema de Biblioteca Virtual Escolar</h1>
+            <p class="lead">Documentação oficial do projeto com requisitos, diagramas UML e equipe.</p>
+            <hr>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>🎯 Objetivo</h3>
+                    <p>Melhorar a Biblioteca Virtual, facilitando o acesso ao acervo e otimizando empréstimos,
+                        devoluções e multas.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>👥 Público Alvo</h3>
+                    <ul class="text-left">
+                        <li><strong>Estudantes:</strong> Reservam e renovam livros.</li>
+                        <li><strong>Professores:</strong> Consultam acervo e renovam empréstimos.</li>
+                        <li><strong>Bibliotecários:</strong> Gerenciam acervo e operações.</li>
+                        <li><strong>Administradores:</strong> Gerenciam usuários e permissões.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="requisitos">
+            <h2 class="text-center">📋 Requisitos e Histórias de Usuário</h2>
+            <p class="text-center">Listagem dos requisitos funcionais e não funcionais.</p>
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    <h3 class="mb-3">Requisitos Funcionais (RF)</h3>
+                    <div class="rf-card"><strong>RF01 – Cadastro de usuários</strong> <span class="priority-high">Alta</span></div>
+                    <div class="rf-card"><strong>RF02 – Login e autenticação</strong> <span class="priority-high">Alta</span></div>
+                    <div class="rf-card"><strong>RF03 – Gerenciamento do acervo</strong> <span class="priority-high">Alta</span></div>
+                    <div class="rf-card"><strong>RF04 – Busca no catálogo</strong> <span class="priority-high">Alta</span></div>
+                    <div class="rf-card"><strong>RF05 – Empréstimos e devoluções</strong> <span class="priority-high">Alta</span></div>
+                    <div class="rf-card"><strong>RF07 – Renovação online</strong> <span class="priority-medium">Média</span></div>
+                    <div class="rf-card"><strong>RF09 – Controle de multas</strong> <span class="priority-medium">Média</span></div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <h3 class="mb-3">Requisitos Não Funcionais (RNF)</h3>
+                    <ul class="list-unstyled">
+                        <li>✔ <strong>RNF01:</strong> Responsivo — <span class="priority-high">Alta</span></li>
+                        <li>✔ <strong>RNF02:</strong> Interface intuitiva — <span class="priority-high">Alta</span></li>
+                        <li>✔ <strong>RNF03:</strong> Segurança — <span class="priority-high">Alta</span></li>
+                        <li>✔ <strong>RNF04:</strong> Desempenho — <span class="priority-high">Alta</span></li>
+                        <li>✔ <strong>RNF05:</strong> Backup automático — <span class="priority-low">Baixa</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="mt-5 mb-3 text-center">Histórias de Usuário Detalhadas</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>ID</th>
+                            <th>Eu, como</th>
+                            <th>Desejo</th>
+                            <th>Para</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>US01</td>
+                            <td>Usuário</td>
+                            <td>fazer login utilizando meu e-mail e senha</td>
+                            <td>acessar a plataforma</td>
+                        </tr>
+                        <tr>
+                            <td>US02</td>
+                            <td>Usuário</td>
+                            <td>cadastrar novos livros</td>
+                            <td>ter acesso aos serviços de empréstimo</td>
+                        </tr>
+                        <tr>
+                            <td>US03</td>
+                            <td>bibliotecário</td>
+                            <td>desejo cadastrar novos livros</td>
+                            <td>disponibilizá-los no acervo da biblioteca</td>
+                        </tr>
+                        <tr>
+                            <td>US04</td>
+                            <td>Usuário</td>
+                            <td>consultar o catálogo de livros</td>
+                            <td>encontrar obras disponíveis para empréstimo</td>
+                        </tr>
+                        <tr>
+                            <td>US05</td>
+                            <td>bibliotecário</td>
+                            <td>registrar o empréstimo de um livro</td>
+                            <td>controlar a saída do acervo</td>
+                        </tr>
+                        <tr>
+                            <td>US06</td>
+                            <td>Usuário</td>
+                            <td>renovar meus empréstimos online</td>
+                            <td>estender o prazo de leitura sem precisar ir até a biblioteca</td>
+                        </tr>
+                        <tr>
+                            <td>US07</td>
+                            <td>Usuário</td>
+                            <td>devolver meus livros emprestados</td>
+                            <td>regularizar minha situação na biblioteca</td>
+                        </tr>
+                        <tr>
+                            <td>US08</td>
+                            <td>sistema</td>
+                            <td>enviar notificações automáticas de prazos</td>
+                            <td>alertar os usuários sobre devoluções próximas</td>
+                        </tr>
+                        <tr>
+                            <td>US09</td>
+                            <td>sistema</td>
+                            <td>calcular e registrar multas automaticamente</td>
+                            <td>controlar os atrasos de devoluções</td>
+                        </tr>
+                        <tr>
+                            <td>US10</td>
+                            <td>bibliotecário</td>
+                            <td>gerar relatórios de empréstimos e devoluções</td>
+                            <td>acompanhar o uso da biblioteca</td>
+                        </tr>
+                        <tr>
+                            <td>US11</td>
+                            <td>administrador</td>
+                            <td>cadastrar novos usuários no sistema</td>
+                            <td>autorizar o uso da plataforma</td>
+                        </tr>
+                        <tr>
+                            <td>US12</td>
+                            <td>Usuário</td>
+                            <td>acessar o sistema também em dispositivos móveis</td>
+                            <td>ter praticidade e mobilidade</td>
+                        </tr>
+                        <tr>
+                            <td>US13</td>
+                            <td>Usuário</td>
+                            <td>uma interface simples e intuitiva</td>
+                            <td>navegar sem dificuldades no sistema</td>
+                        </tr>
+                        <tr>
+                            <td>US14</td>
+                            <td>Usuário</td>
+                            <td>que o sistema seja rápido nas consultas e cadastros</td>
+                            <td>não perder tempo em minhas operações</td>
+                        </tr>
+                        <tr>
+                            <td>US15</td>
+                            <td>administrador</td>
+                            <td>que o sistema realize backup automático do banco de dados</td>
+                            <td>garantir a recuperação em caso de falha</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="diagramas">
+            <h2 class="text-center">📊 Diagramas UML</h2>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>Diagrama de Classes</h4>
+                    <img src="diagrama-classes.png" class="img-fluid p-2 border" alt="Diagrama de Classes">
+                </div>
+                <div class="col-md-6">
+                    <h4>Diagrama de Casos de Uso</h4>
+                    <img src="casos-uso.png" class="img-fluid p-2 border" alt="Diagrama de Casos de Uso">
+                </div>
+            </div>
+        </section>
+
+        <section id="equipe" class="text-center">
+            <h2>🧑‍💻 Equipe de Desenvolvimento</h2>
+            <p class="lead">Projeto desenvolvido por:</p>
+            <ul class="list-unstyled">
+                <li><strong>Tatiane</strong></li>
+                <li><strong>Maria Clara Melo</strong></li>
+                <li><strong>Jordana</strong></li>
+                <li><strong>Sara</strong></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="text-white text-center py-4">
+        <div class="container">
+            <p class="mb-1">Contato: <a
+                    href="mailto:projeto.biblioteca@escola.com">projeto.biblioteca@escola.com</a></p>
+            <p class="mb-0">&copy; 2025 Biblioteca Virtual Escolar. Todos os direitos reservados.</p>
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- REQUISITOS -->
-    <section id="requisitos">
-      <h2 class="text-center">📋 Requisitos e Histórias de Usuário</h2>
-      <p class="text-center">Listagem dos requisitos funcionais e não funcionais.</p>
-
-      <div class="row">
-        <div class="col-md-6">
-
-          <h3 class="mb-3">Requisitos Funcionais (RF)</h3>
-          <div class="rf-card"><strong>RF01 – Cadastro de usuários</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card"><strong>RF02 – Login e autenticação</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card"><strong>RF03 – Gerenciamento do acervo</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card"><strong>RF04 – Busca no catálogo</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card"><strong>RF05 – Empréstimos e devoluções</strong> <span class="priority-high">Alta</span></div>
-          <div class="rf-card"><strong>RF07 – Renovação online</strong> <span class="priority-medium">Média</span></div>
-          <div class="rf-card"><strong>RF09 – Controle de multas</strong> <span class="priority-medium">Média</span></div>
-
-        </div>
-
-        <div class="col-md-6">
-          <h3 class="mb-3">Requisitos Não Funcionais (RNF)</h3>
-          <ul class="list-unstyled">
-            <li>✔ <strong>RNF01:</strong> Responsivo — <span class="priority-high">Alta</span></li>
-            <li>✔ <strong>RNF02:</strong> Interface intuitiva — <span class="priority-high">Alta</span></li>
-            <li>✔ <strong>RNF03:</strong> Segurança — <span class="priority-high">Alta</span></li>
-            <li>✔ <strong>RNF04:</strong> Desempenho — <span class="priority-high">Alta</span></li>
-            <li>✔ <strong>RNF05:</strong> Backup automático — <span class="priority-low">Baixa</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- DIAGRAMAS UML -->
-    <section id="diagramas">
-      <h2 class="text-center">📊 Diagramas UML</h2>
-
-      <div class="row mt-4">
-        <div class="col-md-6">
-          <h4>Diagrama de Classes</h4>
-          <img src="diagrama-classes.png" class="img-fluid p-2 border" alt="Diagrama de Classes">
-        </div>
-        <div class="col-md-6">
-          <h4>Diagrama de Casos de Uso</h4>
-          <img src="casos-uso.png" class="img-fluid p-2 border" alt="Diagrama de Casos de Uso">
-        </div>
-      </div>
-    </section>
-
-    <!-- EQUIPE -->
-    <section id="equipe" class="text-center">
-      <h2>🧑‍💻 Equipe de Desenvolvimento</h2>
-      <p class="lead">Projeto desenvolvido por:</p>
-      <ul class="list-unstyled">
-        <li><strong>Tatiane</strong></li>
-        <li><strong>Maria Clara Melo</strong></li>
-        <li><strong>Jordana</strong></li>
-        <li><strong>Sara</strong></li>
-      </ul>
-    </section>
-
-  </main>
-
-  <!-- RODAPÉ -->
-  <footer class="text-white text-center py-4">
-    <div class="container">
-      <p class="mb-1">Contato: <a href="mailto:projeto.biblioteca@escola.com">projeto.biblioteca@escola.com</a></p>
-      <p class="mb-0">&copy; 2025 Biblioteca Virtual Escolar. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
